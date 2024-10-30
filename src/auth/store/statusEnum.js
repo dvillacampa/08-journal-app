@@ -1,5 +1,5 @@
 export const statusEnum = {
     CHECKING: 'checking',
-    NOAUTHENTICATE: 'no-authenticate',
+    NO_AUTHENTICATE: 'no-authenticate',
     AUTHENTICATE: 'authenticate'
 }
