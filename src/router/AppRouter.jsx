@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 import { AuthRoutes } from '../auth/routes/AuthRoutes';
 import { JournalRoutes } from '../journal/routes/JournalRoutes';
+
 import { statusEnum } from '../auth/store';
 import { CheckingAuth } from '../ui/Components';
 import { useCheckAuth } from '../auth/hooks';
@@ -22,11 +23,12 @@ export const AppRouter = () => {
     <Routes>
       
       {
-        (status === statusEnum.AUTHENTICATE)
+        (status === statusEnum.AUTHENTICATED)
         ? <Route path="/*" element={ <JournalRoutes /> } />
         : <Route path="/auth/*" element={ <AuthRoutes /> } />
       }
-      <Route path="/*" element={ <Navigate to="/auth/login"/> }  /> 
+
+      <Route path='/*' element={ <Navigate to='/auth/login'/> }  /> 
       
 
     </Routes>
