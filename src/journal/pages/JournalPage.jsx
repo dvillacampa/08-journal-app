@@ -1,11 +1,13 @@
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { IconButton } from "@mui/material"
-import { AddOutlined } from "@mui/icons-material"
+import { IconButton } from '@mui/material'
+import { AddOutlined } from '@mui/icons-material'
 
-import { JournalLayout } from "../layouts/JournalLayout"
-import { NoteView, NothingSelectedView } from "../views"
-import { useDispatch, useSelector } from "react-redux"
-import { startAddNewEmptyNote } from "../store"
+import { JournalLayout } from '../layouts/JournalLayout'
+import { NoteView, NothingSelectedView } from '../views'
+import { startAddNewEmptyNote, startLoadingNotes } from '../store'
+
 
 
 
@@ -13,13 +15,19 @@ export const JournalPage = () => {
 
   const dispatch = useDispatch();
 
-  const { isSaving, active } = useSelector( state => state.journal );
+  const { isSaving, active, notes } = useSelector( state => state.journal );
   
   const onAddNote = () => {
 
     dispatch( startAddNewEmptyNote());
 
   }
+
+  useEffect(() => {
+    dispatch( startLoadingNotes() );
+  }, [  ]);
+  
+
   return (
     <JournalLayout>
         

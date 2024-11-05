@@ -8,7 +8,7 @@ export const JournalRoutes = () => {
     <Routes>
         <Route path="/" element={ <JournalPage />} />
         
-        <Route paht="/*" element={ <Navigate to="/" /> } />
+        <Route path="/*" element={ <Navigate to="/" /> } />
     </Routes>
   )
 }

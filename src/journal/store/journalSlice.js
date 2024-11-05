@@ -12,9 +12,8 @@ export const journalSlice = createSlice({
     addNewEmptyNote: ( state, action ) => {
         state.notes.push ( action.payload );
     },
-    retrieveAllNotes: ( staten ) => {
-
-      
+    setNotes: ( state, action ) => {
+        state.notes = action.payload;
     },
     getNote: ( state, action ) => {
 
@@ -41,7 +40,7 @@ export const journalSlice = createSlice({
 
 export const { 
     addNewEmptyNote,
-    retrieveAllNotes,
+    setNotes,
     getNote,
     updateNote,
     removeNote,
