@@ -1,8 +1,9 @@
 import { SaveOutlined } from "@mui/icons-material"
 import { Button, Grid, TextField, Typography } from "@mui/material"
 import { ImagenGallery } from "../components"
+import moment from "moment"
 
-export const NoteView = () => {
+export const NoteView = ({ note }) => {
   return (
     
     <Grid 
@@ -11,7 +12,7 @@ export const NoteView = () => {
         justifyContent='space-between'
         sx={{ mb: 1}}>
             <Grid item>
-                <Typography fontSize={ 39 } fontWeight='light'>28 de agosto, 2023</Typography>
+                <Typography fontSize={ 39 } fontWeight='light'>{ moment().millisecond( note.date ).format('D [de] MMMM [de] YYYY')}</Typography>
             </Grid>
             <Grid item>
                 <Button color="primary" sx={{ padding: 2 }}>
@@ -24,6 +25,7 @@ export const NoteView = () => {
                 <TextField 
                     type="text"
                     variant="filled"
+                    value={ note.title }
                     fullWidth
                     placeholder="Add a title"
                     label="Title"
@@ -36,6 +38,7 @@ export const NoteView = () => {
                     fullWidth
                     multiline
                     placeholder="What happend today"
+                    value={ note.body }
                     minRows={ 5 }
                 />
 

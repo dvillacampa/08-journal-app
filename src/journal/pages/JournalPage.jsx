@@ -32,7 +32,7 @@ export const JournalPage = () => {
     <JournalLayout>
         
         {
-          ( !!active ? <NoteView /> : <NothingSelectedView /> )
+          ( !!active ? <NoteView note={ active } /> : <NothingSelectedView /> )
         }
         
         <IconButton 
